@@ -1,13 +1,21 @@
+import 'dotenv/config'
+
 export default {
     modules: [
         '@nuxtjs/apollo'
     ],
 
+    buildModules: ['@nuxtjs/tailwindcss'],
+
     apollo: {
         clientConfigs: {
             default: {
-                httpEndpoint: 'http://192.168.0.66:3000/graphql'
+                httpEndpoint: process.env.API_URL
             }
         }
+    },
+
+    tailwindcss: {
+        jit: true,
     }
 }
